@@ -1,0 +1,985 @@
+Experiment 1
+Aim- WRITE A PROGRAM to add numbers using JavaScript.
+Code-
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>1</title>
+</head>
+<body>
+	<p id="p1">JavaScript Program - 1</p>
+	<script type="text/javascript">
+		var num1=2;
+		let num2=3;
+		const PI = 3.14;
+		var sum=num1+num2+PI;
+		document.write("<br> Num 1 = "+num1);
+		document.write("<br> Num 2 = "+num2);
+		document.write("<br> PI = "+PI);
+		document.write("<hr><br> Result = "+sum);
+		document.getElementById("p1").innerHTML="<strong>P tag content changed</strong>"
+	</script>
+</body>
+</html>
+
+Output-
+
+
+
+Experiment 2
+Aim- WRITE A PROGRAM to implement arrays in JS.
+Code-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var student = new Array("Bhupen","Sourav","Hanish", "Manish", "praddumn");
+        var courses = ["C","C++","Java","Python","C#"];
+
+        Array.prototype.display = function(){
+            for(var i=0;i<this.length;i++){
+                document.write(this[i]+ " , ")
+            }
+        };
+        function show(obj){
+            for(var i=0;i<obj.length;i++){
+                document.write(obj[i]+ " = ")
+            }
+        }
+        student.display();
+        document.write("<br>");
+        courses.display();
+        document.write("<br>");
+        show(student);
+        document.write("<br>");
+        show(courses);
+        document.write("<hr>");
+        student.sort();
+        show(student);
+        document.write("<br>");
+        student.push("Ajay");
+        show(student);
+        document.write("<br>");
+        student.pop();
+        show(student);
+
+    </script>
+</body>
+</html>
+
+
+Output-
+
+
+
+
+Experiment 3
+Aim- WRITE A PROGRAM to demonstrate the use of for loop in JS
+Code-
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Document </title>
+</head>
+<body>
+	<script>
+		var courses = ["C","C++","Java","Python","C#"];
+		for (x of courses){
+			document.write(">"+x);
+		}
+		document.write("<hr>");
+
+		let title= "Full Stack";
+		for (y of title){
+			document.write(">"+y);
+		}
+		var obj= {
+			name:"Bhupen",
+			rollNo: 8112,
+			department: "IT",
+			section:"7IT2",
+			CGPA: 6.6
+		};
+		for (attribute in obj){
+			document.write("<br>" + attribute + ":" + obj[attribute]);
+		}
+
+	</script>
+</body>
+</html>
+
+Output
+
+
+Experiment 4
+Aim- WRITE A PROGRAM count vowels and check for palindrome
+Code-
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+	<title>p4</title>
+</head>
+<body>
+	<input type="text" id="v" placeholder="Enter String to count vowels" onkeyup="vowel()">
+	<p id="p1"></p>
+	<input type="text" id="p" placeholder="Enter String to check palindrome" style="width: 200px">
+	<button onclick="pald()">Submit</button>
+	<p id="p2"></p>
+	<script type="text/javascript">
+		function vowel(){
+			var count=0;
+			str=document.getElementById("v").value.toLowerCase();
+			for(ch of str){
+				if(ch=="a" ||ch=="e" ||ch=="i" ||ch=="o" ||ch=="u")
+					count++;
+			}
+			document.getElementById("p1").innerHTML="Vowel Count is = "+count;
+			count=0;
+		}
+		function pald(){
+			str=document.getElementById("p").value.toLowerCase();
+			const len= str.length;
+			var flag=true
+			for (let i = 0; i < len / 2; i++) {  
+        				if (str[i] !== str[len - 1 - i]) {  
+            					flag=false;  
+        				}
+        				else{
+        					flag=true;
+        				} 
+    			}
+    			if(flag==true)
+       				document.getElementById("p2").innerHTML="Palindrome";	
+       			else
+       				document.getElementById("p2").innerHTML="Not a Palindrome";
+		}
+		
+	</script>
+
+</body>
+</html>	
+Output-
+
+
+
+Experiment 5
+Aim- WRITE A PROGRAM to remove the duplicate elements from given list
+Code-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove Duplicates</title>
+</head>
+<body>
+<script>
+  function check(x,list2){
+    var flag=false;
+    for(var y of list2){
+      if(x==y)
+        return true;
+    }
+    return false;
+  }
+  function removeDuplicates(list){
+    let list2 = [];
+    for (var x of list){
+      if(check(x,list2)){
+        continue;
+      }
+      else{
+        list2.push(x)
+      }
+    }
+    return list2
+  }
+  
+  let list = [1,2,2,3,4,5,5,6,7,8,8,9,9,2,10]
+  list2 = removeDuplicates(list)
+  for(x of list2)
+    document.write(x+" , ")
+
+</script>
+</body>
+</html>
+
+Output
+
+Experiment 6
+Aim- WRITE A PROGRAM to implement functions in JS.
+Code-
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script>
+		function getDetails(){
+			var student = {
+				name: "Bhupen",
+				rollno: 8112,
+				department: "IT",
+				section: "7IT2",
+				greet:function(){
+					return "Welcome" + this.name;
+				}
+			}
+			return student;	
+		}
+		var obj= getDetails();
+		document.write("<br>Name:" +obj.name);
+		document.write("<br>RollNo:" +obj.rollno);
+		document.write("<br>Department:" +obj.department);
+		document.write("<br>Section:" +obj.section);
+	</script>
+</body>
+</html>
+
+Output
+
+
+
+Experiment 7
+Aim- WRITE A PROGRAM to show the use of constructors
+Code-
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<p id= "p1" style="background-color: blue;"> Car Details </p>
+	<script>
+		class Car{
+			constructor(brand, mk){
+				this.carname= brand;
+				this.make= mk;
+			}
+			show(x){
+				return x + "carname= " + this.carname +"make= " + this.make;
+			}
+		}
+		m1= new Car("Maruti", "2019");
+		m2= new Car("Kia", "2021");
+		document.getElementById("p1").innerHTML= m1.show("Car Details are: ");
+	</script>
+
+</body>
+</html>
+
+
+Output
+
+
+
+
+Experiment 8
+Aim-  WRITE A PROGRAM to show the use of hide, toggle and show radio buttons In jQuery.
+Code-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Program-1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(b1).click(function(){
+                $(d1).hide();
+            });
+            $(b2).click(function(){
+                $(d1).show();
+            });
+            $(b3).click(function(){
+                $(d1).toggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2> jQuery First Program</h2>
+    <div id = "d1" style="background-color: burlywood;"><p>This is Div Element</p></div>
+    <button id = "b1">Hide</button>
+    <button id = "b2">Show</button>
+    <button id = "b3">Toggle</button>
+</body>
+</html>
+
+Output
+
+
+Experiment 9
+Aim- WRITE A PROGRAM to toggle a list and append items to it
+Code-
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#d1").click(function(){
+					$("ul").toggle();
+					$("ul").after("<li> Item6 </li>")
+				});
+			});
+		</script>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<h1> Jquery First </h1>
+	<div id= "d1">
+		<ul>
+			<li> Item1 </li>
+			<li> Item2 </li>
+			<li> Item3 </li>
+			<li> Item4</li>
+			<li> Item5</li>
+		</ul>
+	</div>
+</body>
+
+</html>
+
+Output
+
+
+
+
+
+
+Experiment 10
+Aim- WRITE A PROGRAM to toggle elements in a table and append text
+Code-
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+		</script>
+		<style type="text/css">
+		table,th,td{
+            		border: 1px solid black;
+        			}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#d1").click(function(){
+					$("table tr:even").toggle();
+				});
+				$("#d1").click(function(){
+                    $("table").append("<tr><td>Ravi</td><td>6</td><td>7IT1</td><td>IT</td></tr>");
+                });
+			});
+		</script>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+		<h1> Jquery First </h1>
+	<div id= "d1">
+	<table style="border-color: blueviolet; border: 10px;">
+		<tr> <td>Name</td> <td>RollNo</td> <td>Section</td> <td>Department</td></tr>
+		<tr> <td>Mehul</td> <td>1</td> <td>IT1</td> <td>IT</td></tr>
+		<tr> <td>Tushar</td> <td>2</td> <td>IT1</td> <td>IT</td></tr>
+		<tr> <td>Aryan</td> <td>3</td> <td>IT1</td> <td>IT</td></tr>
+		<tr> <td>Basheer</td> <td>4</td> <td>IT1</td> <td>IT</td></tr>
+		<tr> <td>Abhinav</td> <td>5</td> <td>IT1</td> <td>IT</td></tr>
+	</table>
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+Output-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Experiment 11
+Aim- WRITE A PROGRAM to show the use of click(), mouseleave() and mouseenter() functions.
+Code-
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+		</script>
+		
+	    <script>
+        $(document).ready(function(){
+            $("#d1").on({
+                mouseenter:function(){
+                    $(this).css("background-color", "green");
+                },
+                mouseleave:function(){
+                    $(this).css("background-color", "blue");
+                },
+                click:function(){
+                    $(this).css("background-color", "red");
+                }
+            });
+        });
+    </script>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<h1> jquery Program</h1>
+    <div id="d1" style="background-color:cyan; width: 200px; height: 200px">
+        <h2>jQuery Moto: Write less do more</h2>
+    </div>
+</body>
+</html>
+
+Output-
+
+
+
+Experiment 12
+Aim- WRITE A PROGRAM to show the use of animate function.
+Code-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("div").click(function(){
+                $(this).animate({width:"250px",height:"250px"},"slow");
+            });
+        });
+    </script>
+</head>
+<body>
+        <h1> jquery Program</h1>
+    <div id="d1" style="background-color:cyan; width: 200px; height: 200px">
+        <h2>jQuery Moto: Write less do more</h2>
+    </div>
+</body>
+</html>
+
+Output-
+
+
+
+Experiment 13
+Aim- WRITE A PROGRAM to create an 8-Tile Game
+Code-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+            .grid-container {
+            display:grid;
+            grid-template-columns: auto auto auto;
+            padding: 10px;
+            width: 250px;
+            background-color: #2196F3;
+            }
+            .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 40px;
+            text-align: center;
+            }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#1").click(function(){
+                if($("#4").text()=="9"){
+                    $("#4").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#2").text()=="9"){
+                    $("#2").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+            });
+            $("#2").click(function(){
+                if($("#1").text()=="9"){
+                    $("#1").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#3").text()=="9"){
+                    $("#3").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#5").text()=="9"){
+                    $("#5").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+            });
+            $("#3").click(function(){
+                if($("#2").text()=="9"){
+                    $("#2").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#6").text()=="9"){
+                    $("#6").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+            });
+            $("#4").click(function(){
+                if($("#1").text()=="9"){
+                    $("#1").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#7").text()=="9"){
+                    $("#7").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#5").text()=="9"){
+                    $("#5").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+            });
+            $("#5").click(function(){
+                if($("#2").text()=="9"){
+                    $("#2").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#4").text()=="9"){
+                    $("#4").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#6").text()=="9"){
+                    $("#6").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#8").text()=="9"){
+                    $("#8").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+            });
+            $("#6").click(function(){
+                if($("#3").text()=="9"){
+                    $("#3").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#5").text()=="9"){
+                    $("#5").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#9").text()=="9"){
+                    $("#9").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+            });
+            $("#7").click(function(){
+                if($("#4").text()=="9"){
+                    $("#4").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#8").text()=="9"){
+                    $("#8").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+            });
+            $("#8").click(function(){
+                if($("#7").text()=="9"){
+                    $("#7").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#5").text()=="9"){
+                    $("#5").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#9").text()=="9"){
+                    $("#9").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+            });
+            $("#9").click(function(){
+                if($("#6").text()=="9"){
+                    $("#6").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+                if($("#8").text()=="9"){
+                    $("#8").text($(this).text()).css("visibility","visible");
+                    $(this).text("9").css("visibility","hidden");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="grid-container">
+        <div id="1" class="grid-item">1</div>
+        <div id="2" class="grid-item" style="visibility: hidden;">9</div>
+        <div id="3" class="grid-item">3</div>
+        <div id="4" class="grid-item">4</div>
+        <div id="5" class="grid-item">5</div>
+        <div id="6" class="grid-item">6</div>
+        <div id="7" class="grid-item">7</div>
+        <div id="8" class="grid-item">8</div>
+        <div id="9" class="grid-item">2</div>
+    </div> 
+
+    <!-- check if all elements are sorted-->
+    <!-- Shuffle button -->   
+</body>
+</html>
+
+Output –
+
+
+ 
+
+Experiment 14
+Aim- WRITE A PROGRAM to Fade In and Fade Out using jQuery
+Code-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#b1").click(function(){
+                $("#d1").fadeIn();
+                $("#d2").fadeIn("slow");
+                $("#d3").fadeIn(3000);
+                $("#d4").fadeIn(5000);
+            });
+            $("#b2").click(function(){
+                $("#d1").fadeOut();
+                $("#d2").fadeOut("slow");
+                $("#d3").fadeOut(3000);
+                $("#d4").fadeOut(5000);
+            });
+            $("#b3").click(function(){
+                $("#d1").fadeToggle();
+                $("#d2").fadeToggle("slow");
+                $("#d3").fadeToggle(3000);
+                $("#d4").fadeToggle(5000);
+            });
+            $("#b4").click(function(){
+                $("#d1").fadeTo("slow",0.17);
+                $("#d2").fadeTo("slow",0.8);
+                $("#d3").fadeTo(3000,0.5);
+                $("#d4").fadeTo(5000,0.3);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="b1">Fade In</button>
+    <button id="b2">Fade Out</button>
+    <button id="b3">Fade Toggle</button>
+    <button id="b4">Fade To</button>
+    <div id="d1" style="width: 100px; height: 30px; background-color: darkblue;"></div><br>
+    <div id="d2" style="width: 100px; height: 30px; background-color: rgb(0, 255, 55);"></div><br>
+    <div id="d3" style="width: 100px; height: 30px; background-color: rgb(255, 94, 0);"></div><br>
+    <div id="d4" style="width: 100px; height: 30px; background-color: rgb(255, 0, 221);"></div><br>
+</body>
+</html>
+
+Output -
+ 
+
+
+
+
+
+
+
+Experiment 15
+Aim- WRITE A PROGRAM to create Tic-Tac-Toe using jQuery 
+Code-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+            .grid-container {
+            display:grid;
+            grid-template-columns: auto auto auto;
+            padding: 10px;
+            width: 280px;
+            background-color: #2196F3;
+            }
+            .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 40px;
+            text-align: center;
+            border-radius: 50%;
+            width: 50px;
+            }
+    </style>
+    <script>
+        var f=true
+        $(document).ready(function(){
+            $(".grid-item").click(function(){
+                if(f==true){
+                    $(this).text("X").css("background-color","lightgreen");
+                    f=false;
+                }
+                else{
+                    $(this).text("0").css("background-color","lightblue");
+                    f=true;
+                }
+                if(check()==true){
+                    alert("Game Over")
+                }
+            });
+        });
+        function check(){
+            if($("#1").text()==$("#4").text() && $("#4").text()==$("#7").text() && $("#7").text()!="."){
+                return true;
+            }
+            else if($("#2").text()==$("#5").text() && $("#5").text()==$("#8").text() && $("#8").text()!="."){
+                return true;
+            }
+            else if($("#3").text()==$("#6").text() && $("#6").text()==$("#9").text() && $("#9").text()!="."){
+                return true;
+            }
+            else if($("#1").text()==$("#2").text() && $("#2").text()==$("#3").text() && $("#3").text()!="."){
+                return true;
+            }
+            else if($("#4").text()==$("#5").text() && $("#5").text()==$("#6").text() && $("#6").text()!="."){
+                return true;
+            }
+            else if($("#7").text()==$("#8").text() && $("#8").text()==$("#9").text() && $("#9").text()!="."){
+                return true;
+            }
+            else if($("#1").text()==$("#5").text() && $("#5").text()==$("#9").text() && $("#9").text()!="."){
+                return true;
+            }
+            else if($("#3").text()==$("#5").text() && $("#5").text()==$("#7").text() && $("#7").text()!="."){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h1>TIC TAC TOE</h1>
+    <p><b>X to start</b></p>
+    <div class="grid-container">
+        <div id="1" class="grid-item" data-value="0">.</div>
+        <div id="2" class="grid-item">.</div>
+        <div id="3" class="grid-item">.</div>
+        <div id="4" class="grid-item">.</div>
+        <div id="5" class="grid-item">.</div>
+        <div id="6" class="grid-item">.</div>
+        <div id="7" class="grid-item">.</div>
+        <div id="8" class="grid-item">.</div>
+        <div id="9" class="grid-item">.</div>
+    </div> 
+    <br>
+    <button id="restart" onclick="location.reload()">New Game</button>
+
+    <!-- check if all elements are sorted-->
+    <!-- Shuffle button -->   
+</body>
+</html>
+
+
+
+
+Output -
+
+
+
+
+
+Experiment 16
+Aim- To create a collection in MongoDB and run queries.
+1.To create a collection restaurants
+2.Write a query to display all the documents in the collections restaurant.
+3.Write a query to display the fields restaurant_id, name, borough and cuisine for all the documents in the collection.
+4.Write a query to display all the restaurants which are in borough- Bronx.
+Code + Output-
+1-
+
+2- 
+3- 
+4- 
+Experiment 17
+Aim- 
+Code + Output-
+1-
+
+2-
+
+
+3- 
+
+4-
+
+5-
+
+
+6-
+
+
+
+
+Experiment 18
+Aim- WRITE A PROGRAM in NodeJS to show the usage of http module 
+Code-
+var http= require('http');
+var server = http.createServer(function(req,res){
+    res.writeHead(200, {'Content-Type':'text/html'});
+    res.write("<br><h2>Welcome to Node.js</h2>");
+    res.write("<br><h5>Server side scripting language</h5>");
+    res.end();
+})
+server.listen(5050);
+console.log("Server is listening on port 5050");
+
+Output-
+
+
+
+
+
+Experiment 19
+Aim- Write a program in Node.js to represent different Http Request using req object.
+Code-
+var http= require('http');
+var server = http.createServer(function(req,res){
+    res.writeHead(200, {'Content-Type':'text/html'});
+    res.write("<br>Requested URL : "+ req.url);
+    res.write("<br>HTTP version : "+ req.httpVersion);
+    res.write("<br>Request type : "+ req.method);
+    res.write("<br>Requested headers connection : "+ req.headers.connection);
+    res.write("<br>Requested headers cookie : "+ req.headers.cookie);
+    res.write("<br>Requested headers host : "+ req.headers.host);
+    res.write("<br>Requested headers language : "+ req.headers['accept-language']);
+})
+server.listen(1010);
+console.log("Server is listening on port 1010");
+
+Output-
+
+
+
+
+Experiment 20
+Aim- Write a program in Node.js to split URL and get its parameter.
+Code-
+var http= require('http');
+var url= require('url');
+var server=http.createServer(function(req,res){
+    res.writeHead(200, {'Content-Type':'text/html'});
+    //http://localhost:8080/student?month=Oct&year=2021
+    var q = url.parse(req.url, true).query;
+    var txt = q.year + " " + q.month;
+    res.write("<br> URL : "+req.url);
+    res.write("<br> Length : "+req.url.length);
+    res.end("<br> Parameter : "+txt);
+})
+server.listen(8080);
+console.log("Server is listening on port 8080");
+
+Output-
+
+
+
+
+Experiment 21
+Aim- Write a program in Node.js to use module.export to export log object as module and then load it.
+Code-
+Main js File 
+var myLog = require('./log.js'); 
+myLog.info('Information method get called') 
+myLog.warning('Warning method get called') 
+myLog.error('Error method get called') 
+
+Imported File (Log.js) 
+var log = {
+ 	info: function (info){ 
+console.log('Information:'+info); 
+}, 
+warning: function (warning){ 
+console.log('Warning: '+warning); 
+}, 
+error: function (error) { 
+console.log('Warning: ' + error); 
+} 
+}; 
+module.exports = log
+
+Output-
+
+
+Experiment 22
+Aim- Write a program in Node.js to handle HTTP Requests.
+
+Code-
+var http = require('http'); // Import Node.js core module
+var server = http.createServer(function (req, res) {   //create web server
+    if (req.url == '/') { //check the URL of the current request 
+            res.writeHead(200, { 'Content-Type': 'text/html' }); 
+            res.write('<html><body><p>This is home Page.</p></body></html>');
+            res.end();
+    }
+    else if (req.url == "/login") {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write('<html><body><p>This is Login Page.</p></body></html>');
+            res.end();
+    }
+    else if (req.url == "/mycourse") {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write('<html><body><p>This is My Course Page.</p></body></html>');
+            res.end();
+    }
+    else
+            res.end('Invalid Request!');
+});
+server.listen(8080); //6 - listen for any incoming requests
+console.log('Node.js web server at port 5000 is running..');
+
+	
+Output-
+
